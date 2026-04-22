@@ -1,0 +1,6 @@
+{
+  "name": "DevMind AI IDE v8",
+  "description": "Professional browser-based AI IDE with 10+ online providers, offline Ollama/LM Studio/Jan.ai support, intelligent agent with diff patches, terminal integration, and confirmation dialogs.",
+  "version": "8.0.0",
+  "requestFramePermissions": []
+}

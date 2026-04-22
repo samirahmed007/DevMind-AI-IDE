@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevMind AI IDE v8</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              ide: {
+                bg: 'var(--ide-bg)',
+                sidebar: 'var(--ide-sidebar)',
+                activity: 'var(--ide-activity)',
+                panel: 'var(--ide-panel)',
+                border: 'var(--ide-border)',
+                accent: 'var(--ide-accent)',
+                text: 'var(--ide-text)',
+                textHover: 'var(--ide-text-hover)',
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      /* ── Themes ── */
+      :root.theme-dark {
+        --ide-bg: #1e1e1e;
+        --ide-sidebar: #252526;
+        --ide-activity: #333333;
+        --ide-panel: #1e1e1e;
+        --ide-border: #3e3e42;
+        --ide-accent: #007fd4;
+        --ide-text: #cccccc;
+        --ide-text-hover: #ffffff;
+      }
+      :root.theme-light {
+        --ide-bg: #f8f8f8;
+        --ide-sidebar: #f3f3f3;
+        --ide-activity: #e8e8e8;
+        --ide-panel: #ffffff;
+        --ide-border: #ddd;
+        --ide-accent: #007acc;
+        --ide-text: #333;
+        --ide-text-hover: #000;
+      }
+      :root.theme-midnight {
+        --ide-bg: #0b0e14;
+        --ide-sidebar: #11151c;
+        --ide-activity: #1c222d;
+        --ide-panel: #0d1117;
+        --ide-border: #1f2937;
+        --ide-accent: #3b82f6;
+        --ide-text: #94a3b8;
+        --ide-text-hover: #f8fafc;
+      }
+      :root.theme-solarized {
+        --ide-bg: #002b36;
+        --ide-sidebar: #073642;
+        --ide-activity: #0d3a47;
+        --ide-panel: #00232d;
+        --ide-border: #1a4f5e;
+        --ide-accent: #268bd2;
+        --ide-text: #839496;
+        --ide-text-hover: #93a1a1;
+      }
+
+      /* ── Scrollbars ── */
+      ::-webkit-scrollbar { width: 6px; height: 6px; }
+      ::-webkit-scrollbar-track { background: transparent; }
+      ::-webkit-scrollbar-thumb { background: var(--ide-border); border-radius: 99px; }
+      ::-webkit-scrollbar-thumb:hover { background: var(--ide-accent); }
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+      /* ── Animations ── */
+      @keyframes fade-in { from { opacity: 0 } to { opacity: 1 } }
+      @keyframes slide-in-from-bottom-4 { from { transform: translateY(16px); opacity: 0 } to { transform: translateY(0); opacity: 1 } }
+      @keyframes slide-in-from-bottom-2 { from { transform: translateY(8px); opacity: 0 } to { transform: translateY(0); opacity: 1 } }
+      @keyframes slide-in-from-right-2 { from { transform: translateX(8px); opacity: 0 } to { transform: translateX(0); opacity: 1 } }
+      @keyframes zoom-in-95 { from { transform: scale(0.95); opacity: 0 } to { transform: scale(1); opacity: 1 } }
+      .animate-in { animation-fill-mode: both; animation-duration: 200ms; }
+      .fade-in { animation-name: fade-in; }
+      .slide-in-from-bottom-4 { animation-name: slide-in-from-bottom-4; }
+      .slide-in-from-bottom-2 { animation-name: slide-in-from-bottom-2; }
+      .slide-in-from-right-2 { animation-name: slide-in-from-right-2; }
+      .zoom-in-95 { animation-name: zoom-in-95; }
+      .duration-200 { animation-duration: 200ms; }
+      .duration-300 { animation-duration: 300ms; }
+
+      /* ── Base ── */
+      * { box-sizing: border-box; }
+      body { background: var(--ide-bg); color: var(--ide-text); margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+      optgroup { background: var(--ide-activity); color: var(--ide-text); font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.1em; }
+      option { background: var(--ide-activity); color: var(--ide-text); font-size: 12px; }
+    </style>
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://esm.sh/react@^19.2.4",
+        "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+        "react/": "https://esm.sh/react@^19.2.4/",
+        "@google/genai": "https://esm.sh/@google/genai@^1.40.0",
+        "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
+        "@monaco-editor/react": "https://esm.sh/@monaco-editor/react@^4.7.0"
+      }
+    }
+    </script>
+  </head>
+  <body class="overflow-hidden h-screen w-screen m-0 p-0 antialiased">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
